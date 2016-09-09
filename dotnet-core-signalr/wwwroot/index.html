@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+    <body>
+        <textarea id="chatArea" cols="50" rows="20"></textarea>
+        <br /><br />
+        <input id="message" type="text" />
+        <input id="send" type="button" value="Gonder" />
+        <script src="http://code.jquery.com/jquery-2.2.4.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/signalr/jquery.signalr-2.0.3.js"></script>
+        <script src="/signalr/js"></script>
+
+        <script>
+            var hub = $.connection.chatHub;
+            hub.client.display = function(received) {
+                chatArea.value += received + '\n';
+            };
+            send.addEventListener('click', function() {
+                hub.server.send(message.value);
+            });
+            $.connection.hub.start();
+        </script>
+    </body>
+</html>
