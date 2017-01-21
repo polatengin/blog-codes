@@ -1,0 +1,27 @@
+<div class="container signup-form">
+  <legend class="form-label">Üye olun</legend>
+
+  <div class="form-group">
+    <label for="fullName">Adınız</label>
+    <input type="text" class="form-control" id="fullName" placeholder="Lütfen tam adınızı giriniz" [(ngModel)]="fullName" />
+  </div>
+
+  <div class="form-group">
+    <label for="email">Eposta Adresiniz</label>
+    <input type="email" class="form-control" id="email" placeholder="Lütfen eposta adresinizi giriniz" [(ngModel)]="email" />
+  </div>
+
+  <div class="form-group">
+    <label for="password">Şifreniz</label>
+
+    <input type="password" class="form-control" id="password" placeholder="Lütfen güvenli bir şifre belirleyiniz" [(ngModel)]="password" (keyup)="password=$event.target.value;updateMeter();" />
+
+    <small class="form-text text-muted">Güvenli şifreler küçük-BÜYÜK harf, rakam ve özel karakterlerden oluşur ve en az 8 karakter uzunluğundadır.</small>
+
+    <div class="strength-meter">
+      <div class="strength-meter-fill" attr.data-strength="{{passwordStrength}}"></div>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" (click)="signup()">Kaydol</button>
+</div>
