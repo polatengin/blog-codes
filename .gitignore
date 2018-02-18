@@ -3,3 +3,6 @@ obj
 .vs
 project.lock.json
 *.user
+node_modules
+dist
+app-builds
